@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #eee;
+}
+
+#container {
+  /* 全体のサイズ */
+  height: 100%;
+  width: device-width;
+}
+
+#messages_container {
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+}
+
+#messages_header {
+  padding: 6px;
+  font-size: 16px;
+  height: 40px;
+  background: #ddd;
+  border: 1px solid #ccc;
+}
+
+#header_logo {
+  float: left;
+}
+
+img.a3rt_logo {
+  float: left;
+  width: 60px;
+  height: 30px;
+}
+
+#title {
+  float: left;
+  line-height: 2em;
+  padding-left: 8px;
+}
