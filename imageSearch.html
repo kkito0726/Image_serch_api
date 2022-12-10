@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+    <title>インターンシップ用資材</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
-  <title>インターンシップ用資材</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- js・jsxファイルを読み込み -->
+    <script type="text/babel" src="./components/App.jsx"></script>
+    <script type="text/babel" src="./components/Form.jsx"></script>
+    <script type="text/babel" src="./components/ImageContainer.jsx"></script>
+    <script type="text/babel" src="./components/ImageComponent.jsx"></script>
+    <script type="text/babel" src="./send.js"></script>
 
-  <!-- js・jsxファイルを読み込み -->
-  <script type="text/babel" src="./components/App.jsx"></script>
-  <script type="text/babel" src="./components/Form.jsx"></script>
-  <script type="text/babel" src="./components/ImageContainer.jsx"></script>
-  <script type="text/babel" src="./components/ImageComponent.jsx"></script>
-  <script type="text/babel" src="./send.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
 
-  <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/babel">
+      // レンダリング
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </head>
 
-  <script type="text/babel">
-    // レンダリング
-    ReactDOM.render(<App />, document.getElementById('root'));
-  </script>
-</head>
-
-<body>
-  <div id="container">
-    <div id="messages_container">
-      <div id="messages_header">
-        <div id="header_logo">
-          <img class="a3rt_logo" src="img/A3RT_logo.png" />
-          <div id="title">Image Search API</div>
+  <body>
+    <div>初プッシュ by okamoto</div>
+    <div id="container">
+      <div id="messages_container">
+        <div id="messages_header">
+          <div id="header_logo">
+            <img class="a3rt_logo" src="img/A3RT_logo.png" />
+            <div id="title">Image Search API</div>
+          </div>
         </div>
+
+        <div id="root"></div>
       </div>
-
-      <div id="root"></div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
