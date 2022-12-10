@@ -10,7 +10,14 @@ const Form = (props) => {
   // ========== TODO: onChange / onClick時の処理を記述する ==========
   return (
     <div style={boxStyle}>
-      <form style={formStyle}>
+      <form
+        style={formStyle}
+        onSubmit={(e) => {
+          e.preventDefault();
+          action();
+          handleClear();
+        }}
+      >
         <input
           id="search-text"
           type="text"
@@ -18,16 +25,7 @@ const Form = (props) => {
           style={inputStyle}
           onChange={handleChange}
         />
-        <button
-          style={buttonStyle}
-          onClick={() => {
-            action();
-            handleClear();
-            console.log("aaa");
-          }}
-        >
-          {displayText}
-        </button>
+        <button style={buttonStyle}>{displayText}</button>
       </form>
     </div>
   );
