@@ -1,0 +1,28 @@
+.img {
+  width: 200px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 6px 6px 3px #666666;
+}
+.img:hover {
+  box-shadow: none;
+  background: #b1a7a7;
+  border: 5px solid lightskyblue;
+  cursor: pointer;
+}
+
+button {
+  box-shadow: 6px 6px 3px #666666;
+}
+button:hover {
+  box-shadow: none;
+  cursor: pointer;
+  color: #b1a7a7;
+
+  /* border: 5px solid lightskyblue; */
+}
+
+input {
+  border: 5px solid lightskyblue;
+}

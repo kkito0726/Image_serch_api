@@ -1,9 +1,9 @@
 // sendAction()実行時に引数として渡し、エンドポイントの末尾に付与する文字列
-const END_POINT_SUFFIX_TEXT = 'search_by_text';
-const END_POINT_SUFFIX_IMAGE = 'search_by_image';
+const END_POINT_SUFFIX_TEXT = "search_by_text";
+const END_POINT_SUFFIX_IMAGE = "search_by_image";
 // メインのAppコンポーネント
 const App = () => {
-  const [searchText, setSearchText] = React.useState(''); // フォームへ入力された文字列のstate
+  const [searchText, setSearchText] = React.useState(""); // フォームへ入力された文字列のstate
   const [imageContainer, setImageContainer] = React.useState([]); // 画面に描画する画像情報配列のstate
 
   // imageContainerを更新する処理（sendAction()の結果を格納）
@@ -16,12 +16,16 @@ const App = () => {
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
     // ここに処理を記述
+    setSearchText("");
+    setImageContainer([]);
   };
 
   // ========== TODO: searchTextを更新する処理（フォームへ入力された文字列を格納） ==========
   // setSearchText()を使用する
-  const handleChange = () => {
+  const handleChange = (e) => {
     // ここに処理を記述
+    setSearchText(e.target.value);
+    console.log(searchText);
   };
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
@@ -37,12 +41,13 @@ const App = () => {
   // Formコンポーネントに適切なpropsを渡す
   return (
     <React.Fragment>
-      <Form />
+      <Form
+        handleChange={handleChange}
+        handleSearch={handleSearch}
+        handleClear={handleClear}
+      />
       {imageContainer.map((imageList, index) => (
-        <ImageContainer
-          imageList={imageList}
-          key={index}
-        />
+        <ImageContainer imageList={imageList} key={index} />
       ))}
     </React.Fragment>
   );
