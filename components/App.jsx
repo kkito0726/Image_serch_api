@@ -5,6 +5,8 @@ const END_POINT_SUFFIX_IMAGE = "search_by_image";
 const App = () => {
   const [searchText, setSearchText] = React.useState(""); // フォームへ入力された文字列のstate
   const [imageContainer, setImageContainer] = React.useState([]); // 画面に描画する画像情報配列のstate
+  const [isSearch, setIsSearch] = React.useState(false);
+  const [queryList, setQueryList] = React.useState([]);
 
   // imageContainerを更新する処理（sendAction()の結果を格納）
   const handleChangeImageState = (imageList) => {
@@ -17,6 +19,7 @@ const App = () => {
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
+    setQueryList((queryList) => [...queryList, searchText]);
     setSearchText("");
     console.log(searchText);
     setImageContainer([]);
@@ -36,8 +39,17 @@ const App = () => {
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
   const handleSearch = () => {
+    if (searchText === "") {
+      alert("検索ワードが入力されていません");
+      setIsSearch(false);
+      return;
+    }
+    setIsSearch(true);
+    console.log(queryList);
     sendAction(handleChangeImageState, END_POINT_SUFFIX_TEXT, searchText);
   };
+
+  React.useEffect(() => {});
 
   // ========== EXTRA_TODO: 画像クリック時の画像IDによるsendAction()実行処理 ==========
   // APIリファレンスの「Search by Image API」を確認し、必要な処理を記述
@@ -52,7 +64,9 @@ const App = () => {
         handleSearch={handleSearch}
         handleClear={handleClear}
       />
-
+      {isSearch ? (
+        <h2>{`検索ワード: "${queryList[0]}" に関する画像を20件表示します`}</h2>
+      ) : null}
       {imageContainer.map((imageList, index) => (
         <ImageContainer imageList={imageList} key={index} />
       ))}

@@ -37,13 +37,14 @@ const containerStyle = {
   flexWrap: "wrap",
   alignItems: "flex-start",
   alignContent: "flex-start",
+  justifyContnt: "center",
 };
 
 // 画像を囲うpタグのスタイル
 const boxStyle = {
   width: "10%",
   height: "50%",
-  margin: 0,
+  // margin: 0,
   padding: "1px",
 };
 

@@ -47,7 +47,7 @@ const formStyle = {
 const inputStyle = {
   height: "45px",
   paddingLeft: "5px",
-  borderRadius: "3px",
+  borderRadius: "20px",
   fontSize: "16px",
 };
 const buttonStyle = {
