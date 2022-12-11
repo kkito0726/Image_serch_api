@@ -16,23 +16,13 @@ const sendAction = (handleChangeImageState, param, query) => {
   // ここに処理を記述
   const URL = `${END_POINT}${param}?apikey=${API_KEY}&query=${query}`;
 
-  console.log(URL);
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       const imageList = data.result.img;
       handleChangeImageState(imageList);
     });
-  // handleChangeImageState();
 };
 
 window.sendAction = sendAction;
-// const dataFetch = fetch(URL)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data.result.img);
-//     const imageList = data.result.img;
-//     return imageList;
-//   });
-
-// console.log(dataFetch);
