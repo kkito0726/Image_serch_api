@@ -22,7 +22,7 @@ button:hover {
 }
 
 input {
-  border: 5px solid lightskyblue;
+  border: 1px solid black;
 
   box-shadow: 6px 6px 3px #666666;
   width: 80%;
@@ -33,6 +33,27 @@ input {
 }
 
 #serchContainer {
-  padding-top: 30px;
+  padding: 10px 0px 30px;
   width: 80%;
+}
+
+p {
+  text-align: center;
+  margin-right: 100px;
+  margin-bottom: 20px;
+}
+
+.pageTitle {
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+.pageTitle::before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
 }
