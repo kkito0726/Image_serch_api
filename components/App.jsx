@@ -19,10 +19,9 @@ const App = () => {
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
-    setQueryList((queryList) => [...queryList, searchText]);
     const form = document.getElementById("search-text");
     form.value = "";
-
+    setIsSearch(false);
     setSearchText("");
     setImageContainer([]);
   };
@@ -42,9 +41,11 @@ const App = () => {
   const handleSearch = () => {
     if (searchText === "") {
       alert("検索ワードが入力されていません");
-      setIsSearch(false);
+      // setIsSearch(false);
       return;
     }
+    console.log(queryList);
+    setQueryList((queryList) => [...queryList, searchText]);
     setIsSearch(true);
     console.log(queryList);
     sendAction(handleChangeImageState, END_POINT_SUFFIX_TEXT, searchText);

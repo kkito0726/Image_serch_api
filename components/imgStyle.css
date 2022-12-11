@@ -12,10 +12,10 @@
   cursor: pointer;
 }
 
-button {
+a {
   box-shadow: 6px 6px 3px #666666;
 }
-button:hover {
+a:hover {
   box-shadow: none;
   cursor: pointer;
   color: #b1a7a7;

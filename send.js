@@ -19,7 +19,6 @@ const sendAction = (handleChangeImageState, param, query) => {
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const imageList = data.result.img;
       handleChangeImageState(imageList);
     });
