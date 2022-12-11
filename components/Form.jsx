@@ -21,7 +21,7 @@ const Form = (props) => {
         <input
           id="search-text"
           type="text"
-          placeholder="最大50文字"
+          placeholder="画像を検索（最大50文字）"
           style={inputStyle}
           onChange={handleChange}
         />

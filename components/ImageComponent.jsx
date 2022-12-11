@@ -5,6 +5,7 @@ const ImageComponent = (props) => {
 
   return (
     <img
+      className="img"
       src={url}
       alt={name}
       title={name}

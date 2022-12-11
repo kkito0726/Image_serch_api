@@ -10,24 +10,32 @@ const App = () => {
   const handleChangeImageState = (imageList) => {
     const newImageContainer = [...imageContainer, imageList];
     setImageContainer(newImageContainer);
+    // console.log(imageContainer)
+    // ここでコンソールすると同期通信なのでimageContainerstateにまだデータが格納されない
   };
 
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
     setSearchText("");
+    console.log(searchText);
     setImageContainer([]);
+    console.log(imageContainer);
   };
 
   // ========== TODO: searchTextを更新する処理（フォームへ入力された文字列を格納） ==========
   // setSearchText()を使用する
   const handleChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue.length > 50) {
+      alert("入力は最大50文字でお願いします!");
+      return;
+    }
     setSearchText(e.target.value);
   };
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
   const handleSearch = () => {
-    console.log(searchText);
     sendAction(handleChangeImageState, END_POINT_SUFFIX_TEXT, searchText);
   };
 
@@ -45,6 +53,7 @@ const App = () => {
         handleClear={handleClear}
       />
 
+      {/* imageList→imageInfoに変更 */}
       {imageContainer.map((imageList, index) => (
         <ImageContainer imageList={imageList} key={index} />
       ))}
