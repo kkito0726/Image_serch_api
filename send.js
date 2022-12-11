@@ -15,6 +15,7 @@ const sendAction = (handleChangeImageState, param, query) => {
 
   // ここに処理を記述
   const URL = `${END_POINT}${param}?apikey=${API_KEY}&query=${query}`;
+
   console.log(URL);
   fetch(URL)
     .then((response) => response.json())
@@ -26,7 +27,6 @@ const sendAction = (handleChangeImageState, param, query) => {
 };
 
 window.sendAction = sendAction;
-
 // const dataFetch = fetch(URL)
 //   .then((response) => response.json())
 //   .then((data) => {

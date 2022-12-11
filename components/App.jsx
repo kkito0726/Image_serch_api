@@ -31,7 +31,7 @@ const App = () => {
       alert("入力は最大50文字でお願いします!");
       return;
     }
-    setSearchText(e.target.value);
+    setSearchText(inputValue);
   };
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
@@ -53,7 +53,6 @@ const App = () => {
         handleClear={handleClear}
       />
 
-      {/* imageList→imageInfoに変更 */}
       {imageContainer.map((imageList, index) => (
         <ImageContainer imageList={imageList} key={index} />
       ))}
