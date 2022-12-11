@@ -24,8 +24,12 @@ const App = () => {
   // setSearchText()を使用する
   const handleChange = (e) => {
     // ここに処理を記述
-    setSearchText(e.target.value);
-    console.log(searchText);
+    const inputValue = e.target.value;
+    if (inputValue.length > 50) {
+      alert("入力は最大50文字でお願いします!");
+      return;
+    }
+    setSearchText(inputValue);
   };
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
