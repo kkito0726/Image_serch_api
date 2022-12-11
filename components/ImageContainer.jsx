@@ -4,7 +4,11 @@ const ImageContainer = (props) => {
 
   // ========== TODO: createImageElement()を実行してImageComponentの配列をimageElementListへ格納する処理（※一旦空の配列を代入しているので正しい値を代入して下さい） ==========
   // imageListは20枚毎の画像リストのため、繰り返し処理でImageComponentを生成する
+  console.log(imageList);
   const imageElementList = [];
+  imageList.map((image, index) => {
+    imageElementList.push(createImageElement(image, index));
+  });
 
   return <div style={containerStyle}>{imageElementList}</div>;
 };
@@ -14,28 +18,33 @@ const ImageContainer = (props) => {
 const createImageElement = (image, index) => {
   return (
     <p style={boxStyle} key={index}>
-      <ImageComponent />
+      <ImageComponent
+        url={image.url}
+        // image.file_name?
+        name={image.name}
+        image_id={image.image_id}
+      />
     </p>
   );
 };
 
 // 画像コンテナのスタイル
 const containerStyle = {
-  width: '1400px',
-  height: '280px',
-  margin: '0 auto',
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'flex-start',
-  alignContent: 'flex-start',
+  width: "1400px",
+  height: "280px",
+  margin: "0 auto",
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "flex-start",
+  alignContent: "flex-start",
 };
 
 // 画像を囲うpタグのスタイル
 const boxStyle = {
-  width: '10%',
-  height: '50%',
+  width: "10%",
+  height: "50%",
   margin: 0,
-  padding: '1px',
+  padding: "1px",
 };
 
 window.ImageContainer = ImageContainer;

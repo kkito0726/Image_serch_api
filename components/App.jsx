@@ -10,20 +10,22 @@ const App = () => {
   const handleChangeImageState = (imageList) => {
     const newImageContainer = [...imageContainer, imageList];
     setImageContainer(newImageContainer);
+    // console.log(imageContainer)
+    // ここでコンソールすると同期通信なのでimageContainerstateにまだデータが格納されない
   };
 
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
-    // ここに処理を記述
     setSearchText("");
+    console.log(searchText);
     setImageContainer([]);
+    console.log(imageContainer);
   };
 
   // ========== TODO: searchTextを更新する処理（フォームへ入力された文字列を格納） ==========
   // setSearchText()を使用する
   const handleChange = (e) => {
-    // ここに処理を記述
     const inputValue = e.target.value;
     if (inputValue.length > 50) {
       alert("入力は最大50文字でお願いします!");
@@ -50,6 +52,7 @@ const App = () => {
         handleSearch={handleSearch}
         handleClear={handleClear}
       />
+
       {imageContainer.map((imageList, index) => (
         <ImageContainer imageList={imageList} key={index} />
       ))}

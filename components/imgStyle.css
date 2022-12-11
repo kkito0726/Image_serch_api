@@ -19,12 +19,11 @@ button:hover {
   box-shadow: none;
   cursor: pointer;
   color: #b1a7a7;
-
-  /* border: 5px solid lightskyblue; */
 }
 
 input {
   border: 5px solid lightskyblue;
+
   box-shadow: 6px 6px 3px #666666;
   width: 80%;
 }
