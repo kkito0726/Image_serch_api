@@ -25,4 +25,15 @@ button:hover {
 
 input {
   border: 5px solid lightskyblue;
+  box-shadow: 6px 6px 3px #666666;
+  width: 80%;
+}
+
+#messages_header {
+  box-shadow: 0px 6px 6px #666666;
+}
+
+#serchContainer {
+  padding-top: 30px;
+  width: 80%;
 }
