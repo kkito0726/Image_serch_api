@@ -17,10 +17,10 @@ const App = () => {
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
+    const form = document.getElementById("search-text");
+    form.value = "";
     setSearchText("");
-    console.log(searchText);
     setImageContainer([]);
-    console.log(imageContainer);
   };
 
   // ========== TODO: searchTextを更新する処理（フォームへ入力された文字列を格納） ==========
@@ -42,6 +42,9 @@ const App = () => {
   // ========== EXTRA_TODO: 画像クリック時の画像IDによるsendAction()実行処理 ==========
   // APIリファレンスの「Search by Image API」を確認し、必要な処理を記述
   // ImageComponentをクリックした時に発火する関数を定義し、その中でsendAction()を実行する ※引数に注意
+  const clickImageSearch = (imageid) => {
+    sendAction(handleChangeImageState, END_POINT_SUFFIX_IMAGE, imageid);
+  };
 
   // ========== TODO: 画面へレンダリングする要素を定義 ==========
   // Formコンポーネントに適切なpropsを渡す
@@ -51,10 +54,15 @@ const App = () => {
         handleChange={handleChange}
         handleSearch={handleSearch}
         handleClear={handleClear}
+        existsImage={imageContainer.length !== 0}
       />
 
       {imageContainer.map((imageList, index) => (
-        <ImageContainer imageList={imageList} key={index} />
+        <ImageContainer
+          imageList={imageList}
+          clickImageSearch={clickImageSearch}
+          key={index}
+        />
       ))}
     </React.Fragment>
   );

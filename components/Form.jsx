@@ -1,22 +1,28 @@
 // 検索フォームコンポーネント
 const Form = (props) => {
-  const { handleChange, handleSearch, handleClear, existsImage } = props;
+  const { handleChange, handleSearch, handleClear, existsImage, isImage } =
+    props;
 
   // ========== TODO: 画面へ描画する文字列とメソッドを定義 ==========
-  // existsImageを用いて、画像が表示されている場合はdisplayText = 'クリア'・action = onClearを割り当てる
-  const displayText = "検索";
-  const action = handleSearch;
+  // existsImageを用いて、画像が表示されている場合はdisplayText = 'クリア'・action = handleClearを割り当てる
+
+  // let action = handleSearch;
+  // if (isImage) {
+  //   displayText = "クリア";
+  //   action = onClear;
+  // }
 
   // ========== TODO: onChange / onClick時の処理を記述する ==========
   return (
     <div style={boxStyle} id="serchContainer">
       <form
         style={formStyle}
-        onSubmit={(e) => {
-          e.preventDefault();
-          action();
-          handleClear();
-        }}
+        // onSubmit={(e) => {
+        //   e.preventDefault();
+        //   // action();
+        //   // existsImage();
+        //   // handleClear();
+        // }}
       >
         <input
           id="search-text"
@@ -25,7 +31,12 @@ const Form = (props) => {
           style={inputStyle}
           onChange={handleChange}
         />
-        <button style={buttonStyle}>{displayText}</button>
+        <a
+          style={buttonStyle}
+          onClick={existsImage ? handleClear : handleSearch}
+        >
+          {existsImage ? "クリア" : "検索"}
+        </a>
       </form>
     </div>
   );
