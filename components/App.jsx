@@ -69,7 +69,9 @@ const App = () => {
         existsImage={imageContainer.length !== 0}
       />
       {isSearch ? (
-        <h2>{`検索ワード: "${queryList[0]}" に関する画像を20件表示します`}</h2>
+        <h2>{`検索ワード: "${
+          queryList[queryList.length - 1]
+        }" に関する画像を20件表示します`}</h2>
       ) : null}
       {imageContainer.map((imageList, index) => (
         <ImageContainer
