@@ -1,27 +1,37 @@
 // sendAction()実行時に引数として渡し、エンドポイントの末尾に付与する文字列
-const END_POINT_SUFFIX_TEXT = 'search_by_text';
-const END_POINT_SUFFIX_IMAGE = 'search_by_image';
+const END_POINT_SUFFIX_TEXT = "search_by_text";
+const END_POINT_SUFFIX_IMAGE = "search_by_image";
 // メインのAppコンポーネント
 const App = () => {
-  const [searchText, setSearchText] = React.useState(''); // フォームへ入力された文字列のstate
+  const [searchText, setSearchText] = React.useState(""); // フォームへ入力された文字列のstate
   const [imageContainer, setImageContainer] = React.useState([]); // 画面に描画する画像情報配列のstate
 
   // imageContainerを更新する処理（sendAction()の結果を格納）
   const handleChangeImageState = (imageList) => {
     const newImageContainer = [...imageContainer, imageList];
     setImageContainer(newImageContainer);
+    // console.log(imageContainer)
+    // ここでコンソールすると同期通信なのでimageContainerstateにまだデータが格納されない
   };
 
   // ========== TODO: フォームの入力欄とimageContainer変数を初期化する処理 ==========
   // imageContainer変数はsetImageContainer()を使用する
   const handleClear = () => {
-    // ここに処理を記述
+    setSearchText("");
+    console.log(searchText);
+    setImageContainer([]);
+    console.log(imageContainer);
   };
 
   // ========== TODO: searchTextを更新する処理（フォームへ入力された文字列を格納） ==========
   // setSearchText()を使用する
-  const handleChange = () => {
-    // ここに処理を記述
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue.length > 50) {
+      alert("入力は最大50文字でお願いします!");
+      return;
+    }
+    setSearchText(e.target.value);
   };
 
   // フォームへ入力された文字列によるsend.jsのsendAction()実行処理
@@ -37,12 +47,15 @@ const App = () => {
   // Formコンポーネントに適切なpropsを渡す
   return (
     <React.Fragment>
-      <Form />
+      <Form
+        handleChange={handleChange}
+        handleSearch={handleSearch}
+        handleClear={handleClear}
+      />
+
+      {/* imageList→imageInfoに変更 */}
       {imageContainer.map((imageList, index) => (
-        <ImageContainer
-          imageList={imageList}
-          key={index}
-        />
+        <ImageContainer imageList={imageList} key={index} />
       ))}
     </React.Fragment>
   );
